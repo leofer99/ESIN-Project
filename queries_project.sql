@@ -46,7 +46,6 @@ FROM ( SELECT member.login_id, member.joined_date, fees.id_fee, fee_amount, paym
 --updates the value of fee_months_ahead in FeesInfo 
 UPDATE FeesInfo
 SET fee_months_ahead = 
-
 (
     SELECT (SUM(amount_paid / fee_amount) - CAST((julianday('now') - julianday(joined_date)) / 30 AS INTEGER))
     FROM (
