@@ -57,7 +57,7 @@ INSERT INTO EventHistory (event_id, event_name, event_date, event_type) VALUES (
 INSERT INTO EventHistory (event_id, event_name, event_date, event_type) VALUES (9, 'Braga', '2024', 'RSC');
 INSERT INTO EventHistory (event_id, event_name, event_date, event_type) VALUES (10, 'Porto', '2024', 'NSC');
 
-INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(2, 1, 'Organiser');
+INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(2, 1, 'Participant');
 INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(2, 8, 'Head-Organiser');
 INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(3, 1, 'Organiser');
 INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(3, 4, 'Head-Organiser');
@@ -168,9 +168,9 @@ INSERT INTO MemberHistory (login_id, id_asso)  VALUES (7, 4);
 INSERT INTO MemberHistory (login_id, id_asso)  VALUES (7, 8);
 
 --Storage:
-INSERT INTO Storage(sid, product_type) VALUES (1, 'kitchenware');
-INSERT INTO Storage(sid, product_type) VALUES (2, 'post-its');
-INSERT INTO Storage(sid, product_type) VALUES (3, 'stapler');
+INSERT INTO Storage(sid, product_type) VALUES (1, 'Books about Mental Health');
+INSERT INTO Storage(sid, product_type) VALUES (2, 'Flyers');
+INSERT INTO Storage(sid, product_type) VALUES (3, 'Stapler');
 INSERT INTO Storage(sid, product_type) VALUES (4, 'stickers');
 
 INSERT INTO MemberStorage (login_id, sid, quantity) VALUES (5,  1, 1);
