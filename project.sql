@@ -27,21 +27,21 @@ DROP TABLE IF EXISTS Person;
 
 --CREATE TABLEs
 CREATE TABLE Person( 
-    id INTEGER PRIMARY KEY,
+    id_ INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT NOT NULL
    
 );
 
 CREATE TABLE FeesInfo(
-    id_feeinfo INTEGER PRIMARY KEY,
+    id_feeinfo INTEGER PRIMARY KEY AUTOINCREMENT,
     fee_type TEXT NOT NULL CHECK (fee_type='regular' OR fee_type='social bodies'),
     fee_status TEXT NOT NULL CHECK (fee_status='paid' OR fee_status='behind' OR fee_status='danger of expulsion'),
     fee_months_ahead INTEGER
 );
 
 CREATE TABLE Member (
-    id INTEGER PRIMARY KEY REFERENCES Person,
+    id_ INTEGER PRIMARY KEY REFERENCES Person,
     gender TEXT NOT NULL,
     city TEXT NOT NULL,
     joined_date TEXT NOT NULL,
@@ -52,19 +52,19 @@ CREATE TABLE Member (
 );
 
 CREATE TABLE NonMember (
-    id INTEGER PRIMARY KEY REFERENCES Person,
+    id_ INTEGER PRIMARY KEY REFERENCES Person,
     interest_in_joining TEXT NOT NULL CHECK(interest_in_joining='yes')
 
 );
 
 CREATE TABLE Admin (
-    id INTEGER PRIMARY KEY REFERENCES Person,
+    id_ INTEGER PRIMARY KEY REFERENCES Person,
     id_admin NOT NULL UNIQUE
    
 );
 
 CREATE TABLE EventHistory(
-    event_id INTEGER PRIMARY KEY,
+    event_id INTEGER PRIMARY KEY AUTOINCREMENT,
     event_name TEXT NOT NULL,
     event_date TEXT NOT NULL,
     event_type TEXT NOT NULL
@@ -108,8 +108,8 @@ CREATE TABLE MemberPayment(
 
 CREATE TABLE AssociationHistory(
     id_asso INTEGER PRIMARY KEY,
-    role TEXT NOT NULL,
-    year TEXT NOT NULL --ou text?
+    role_asso TEXT NOT NULL,
+    year_asso TEXT NOT NULL --ou text?
    
 );
 
