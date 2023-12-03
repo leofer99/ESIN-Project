@@ -1,10 +1,9 @@
 <?php
   session_start();
 
-  $msg = $_SESSION['msg'];
-  unset($_SESSION['msg']);
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +17,13 @@
 <body>
     <header>
         <h1>Paws & People Association</h1>
-
+        
         <?php if (isset($_SESSION['login_id'])) { ?>
             <form id="logout" action="action_logout.php">
             <span><?php echo $_SESSION['username'] ?></span>
             <button>Logout</button>
             </form>   
         <?php } ?>
-
 
         <nav>
             <!-- Display membership status here -->
@@ -43,11 +41,11 @@
 
     <section>
         <h2>Welcome to Paws & People!</h2>
-
+       
     </section>
     
     <section>
-        <h2>Homepage</h2>
+        <h2>About Us</h2>
        
     </section>
 
