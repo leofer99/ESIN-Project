@@ -93,41 +93,64 @@ SET fee_months_ahead = CASE
     ELSE fee_months_ahead --still pays
 END;
 
---user views their payments:
-SELECT member.login_id, payment.id_pay, type_payment, date_payment, amount_paid
-    FROM Payment
-    JOIN MemberPayment ON memberpayment.id_pay = payment.id_pay
-    JOIN Member ON memberpayment.login_id = member.login_id
+--finds username from login_id
+SELECT name 
+    FROM Person
+    JOIN Member ON member.id=person.id
+WHERE member.login_id=3 --specific login_id
+--GROUP BY member.login_id;
 
- WHERE member.login_id=2  --specific_login_id
- GROUP BY member.login_id, payment.date_payment; 
 
---user inserts a new payment:
-INSERT INTO Payment (id_pay, type_payment, date_payment, amount_paid) VALUES  (1, 'mbway','2023-05-06','5');
-INSERT INTO MemberPayment (id_pay, login_id) VALUES (1, 2); --login_id is of the specific user
+--USER INFO
+--user views their account information(name, email, gender, city, joined_date)
+SELECT name, email, gender, city, joined_date
+    FROM Person
+    JOIN Member ON member.id_=person.id_
+WHERE member.login_id=?; --specific login_id
+--ORDER BY member.login_id;
 
 
 --user views their fees information (status, type and months_ahead_paid):
-SELECT member.login_id, feesinfo.id_feeinfo, fee_type, fee_status, fee_months_ahead
+SELECT fee_type, fee_status, fee_months_ahead
     FROM FeesInfo
     JOIN Member ON feesinfo.id_feeinfo= member.id_feeinfo
 
  WHERE member.login_id=2  --specific_login_id
  GROUP BY member.login_id; 
 
---user views their storage:
-SELECT member.login_id, storage.sid, product_type, quantity
+
+--PAYMENT HISTORY
+--user views their payments: member.login_id, payment.id_pay,
+SELECT  date_payment, amount_paid, type_payment
+    FROM Payment
+    JOIN MemberPayment ON memberpayment.id_pay = payment.id_pay
+    JOIN Member ON memberpayment.login_id = member.login_id
+
+ WHERE member.login_id=2  --specific_login_id
+ ORDER BY date_payment DESC;
+ --GROUP BY member.login_id, payment.date_payment; 
+
+--user inserts a new payment:
+INSERT INTO Payment (id_pay, type_payment, date_payment, amount_paid) VALUES  (1, 'mbway','2023-05-06','5');
+INSERT INTO MemberPayment (id_pay, login_id) VALUES (1, 2); --login_id is of the specific user
+
+
+--ASSOCIATION HISTORY
+--user views their history in the association:
+SELECT member.login_id, memberhistory.id_asso, role_asso, year_asso
     FROM Member
-    JOIN MemberStorage ON member.login_id = memberstorage.login_id
-    JOIN Storage ON memberstorage.sid = storage.sid
+    JOIN MemberHistory ON member.login_id = memberhistory.login_id
+    JOIN AssociationHistory ON associationhistory.id_asso = memberhistory.id_asso
 
- WHERE member.login_id=5  --specific_login_id
- GROUP BY member.login_id, storage.sid; 
+ WHERE member.login_id=3  --specific_login_id
+ ORDER BY year DESC;
 
- --user inserts new storage:
- INSERT INTO Storage(sid, product_type) VALUES (1, 'kitchenware');
- INSERT INTO MemberStorage (login_id, sid, quantity) VALUES (5,  1, 1); --specific_login_id
+  --user inserts new association history:
+  INSERT INTO AssociationHistory (id_asso, role_asso, year_asso) VALUES (1, 'Member', '2021');
+  INSERT INTO MemberHistory (login_id, id_asso) VALUES (2, 1); --specific_login_id
 
+
+--EVENT HISTORY
 --user views their event history, including the role:
 SELECT member.login_id, memberevent.event_id, event_name, event_date, event_type, event_role
     FROM Member
@@ -135,22 +158,24 @@ SELECT member.login_id, memberevent.event_id, event_name, event_date, event_type
     JOIN EventHistory ON memberevent.event_id = eventhistory.event_id
 
  WHERE member.login_id=3  --specific_login_id
- GROUP BY event_date, memberevent.event_id;
+ ORDER BY event_date DESC, memberevent.event_id DESC;
 
   --user inserts new event history:
 INSERT INTO EventHistory(event_id, event_name, event_date, event_type) VALUES (1, 'Iberian IF', '2022', 'IF');
 INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(2, 1, 'Organiser'); --specific_login_id
 
 
---user views their history in the association:
-SELECT member.login_id, memberhistory.id_asso, role, year
+--STORAGE
+--user views their storage:
+SELECT member.login_id, storage.sid, product_type, quantity
     FROM Member
-    JOIN MemberHistory ON member.login_id = memberhistory.login_id
-    JOIN AssociationHistory ON associationhistory.id_asso = memberhistory.id_asso
+    JOIN MemberStorage ON member.login_id = memberstorage.login_id
+    JOIN Storage ON memberstorage.sid = storage.sid
 
- WHERE member.login_id=3  --specific_login_id
- GROUP BY year, memberhistory.id_asso;
+ WHERE member.login_id=5  --specific_login_id
+ ORDER BY storage.sid DESC;
+ --GROUP BY member.login_id, storage.sid; 
 
-  --user inserts new association history:
-  INSERT INTO AssociationHistory (id_asso, role, year) VALUES (1, 'Member', '2021');
-  INSERT INTO MemberHistory (login_id, id_asso) VALUES (2, 1); --specific_login_id
+ --user inserts new storage:
+ INSERT INTO Storage(sid, product_type) VALUES (1, 'kitchenware');
+ INSERT INTO MemberStorage (login_id, sid, quantity) VALUES (5,  1, 1); --specific_login_id
