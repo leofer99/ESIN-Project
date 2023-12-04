@@ -7,13 +7,30 @@ body {
 
 header {
     text-align: center;
-    background-color: #333;
+    background-color: #004fff;
     color: white;
     padding: 40px;
 }
 
 section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+section:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #004fff;
+    border-bottom: 2px solid #004fff;
+    padding-bottom: 10px;
     margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 table {
@@ -29,7 +46,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #004fff;
     color: white;
 }
 
@@ -37,7 +54,7 @@ footer {
     text-align: center;
     margin-top: 20px;
     padding: 10px;
-    background-color: #333;
+    background-color: #004fff;
     color: white;
 }
 
