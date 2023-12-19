@@ -6,10 +6,21 @@
     $_SESSION['msg'] = 'Please login to see your personal info.';
     header('Location: project_login.php');
   }
+
+  require_once('database/init.php');
+  require_once('database/user.php');
   
   try {
     $login_id = $_SESSION['login_id'];  
 
+      //User Functions:
+    $user_infos = getUserInfoById($login_id);
+    $user_fees = getUserFeesInfoById($login_id);
+    $payments = getUserPaymentHistoryById($login_id);
+    $association = getUserAssociationHistoryById($login_id);
+    $events = getUserEventHistoryById($login_id);
+    $inventory = getUserInventoryById($login_id);
+    
     $dbh = new PDO('sqlite:sql/project_.db');
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -60,6 +71,8 @@
     $stmt->execute(array($login_id));
     $events = $stmt->fetchAll();
 
+     //$members= getAllMembers();
+
     //selects inventory of the user
     $stmt = $dbh->prepare('SELECT product_type, quantity
         FROM Member
@@ -75,12 +88,24 @@
     $error_msg = $e->getMessage();
   }
 
-?>
+    include_once('templates/header_tpl.php');
 
+?>
+   if ($login_id==8) { //if admin user
+  include_once('templates/admin_tpl.php');
+  }
+else { //if normal user
+  include_once('templates/quotas_tpl.php');
+}
+
+  include_once('templates/footer_tpl.php');
+  
 
 <header>
         <div class="container">
             <h1>Association Management System</h1>
+
+          ?>
 
             <?php if (isset($_SESSION['login_id'])) { ?>
                 <form id="logout" action="action_logout.php">
