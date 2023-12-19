@@ -86,6 +86,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Association Management System</title>
   
+    <!-- Add any additional styles specific to the Quotas Information page -->
+    <style>
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #e44d26;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e44d26;
+            color: #fff;
+        }
+
+        article {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        article span {
+            flex-basis: 24%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -104,10 +144,9 @@
                 <li><a href="project_homepage.php">Home</a></li>
                 <li><a href="project_about_us.php">About Us</a></li>
                 <li><a href="project_login.php">Login</a></li>
-                <li><a href="project_quotas.php"> Quotas Information </a></li>
-              </ul> 
+                <li><a href="project_quotas.php">Quotas Information</a></li>
+            </ul>
         </nav>
-
     </header>
 
     <section>
@@ -251,8 +290,5 @@
 
     </section>
 
-    <footer>
-        <p>&copy; Association Name</p>
-    </footer>
 </body>
 </html>

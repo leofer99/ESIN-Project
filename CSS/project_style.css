@@ -1,0 +1,127 @@
+/* project_style.css */
+
+body {
+    font-family: 'Poppins', sans-serif; /* Changed font to Poppins */
+    background-color: #f0f0f0;
+    margin: 0;
+    color: #333;
+}
+
+header {
+    background-color: #34495e; /* Changed header background color to a dark blue-gray */
+    color: #ecf0f1; /* Changed header text color to a light gray */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #e44d26;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: #e44d26;
+    background-color: #ecf0f1;
+}
+
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+h2 {
+    color: #e44d26;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #e44d26;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #e44d26;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.photo-grid img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+ 
+}
