@@ -2,6 +2,10 @@
   session_start();
 ?>
 
+include_once('templates/header_tpl.php');
+  include_once('templates/about_us_tpl.php');
+  include_once('templates/footer_tpl.php');
+
 <!-- About Us Page -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +18,7 @@
 </head>
 <body>
 
+?>
     <header>
         <div class="container">
             <h1> <a href="project_homepage.php">Paws & People Association</a></h1>
