@@ -88,10 +88,10 @@
     $error_msg = $e->getMessage();
   }
 
-    include_once('templates/header_tpl.php');
+  include_once('templates/header_tpl.php');
 
-?>
-   if ($login_id==8) { //if admin user
+    if ($login_id==8) { //if admin user             
+
   include_once('templates/admin_tpl.php');
   }
 else { //if normal user
@@ -99,7 +99,7 @@ else { //if normal user
 }
 
   include_once('templates/footer_tpl.php');
-  
+  ?>
 
 <header>
         <div class="container">
