@@ -22,7 +22,6 @@ DROP TABLE IF EXISTS AssociationHistory;
 DROP TABLE IF EXISTS Member;
 DROP TABLE IF EXISTS FeesInfo;
 DROP TABLE IF EXISTS Admin;
-DROP TABLE IF EXISTS NonMember;
 DROP TABLE IF EXISTS Person;
 
 --CREATE TABLEs
@@ -36,13 +35,13 @@ CREATE TABLE Person(
 CREATE TABLE FeesInfo(
     id_feeinfo INTEGER PRIMARY KEY AUTOINCREMENT,
     fee_type TEXT NOT NULL CHECK (fee_type='regular' OR fee_type='social bodies'),
-    fee_status TEXT NOT NULL CHECK (fee_status='paid' OR fee_status='behind' OR fee_status='danger of expulsion'),
-    fee_months_ahead INTEGER
+    --fee_status TEXT NOT NULL CHECK (fee_status='paid' OR fee_status='behind' OR fee_status='danger of expulsion'),
+    --fee_months_ahead INTEGER
 );
 
 CREATE TABLE Member (
     id_ INTEGER PRIMARY KEY REFERENCES Person,
-    gender TEXT NOT NULL,
+    gender TEXT NOT NULL CHECK (gender='female' OR gender='male' OR gender='other'),
     city TEXT NOT NULL,
     joined_date TEXT NOT NULL,
     login_id INTEGER NOT NULL UNIQUE,
@@ -51,11 +50,6 @@ CREATE TABLE Member (
 
 );
 
-CREATE TABLE NonMember (
-    id_ INTEGER PRIMARY KEY REFERENCES Person,
-    interest_in_joining TEXT NOT NULL CHECK(interest_in_joining='yes')
-
-);
 
 CREATE TABLE Admin (
     id_ INTEGER PRIMARY KEY REFERENCES Person,
@@ -90,6 +84,7 @@ CREATE TABLE Payment(
 CREATE TABLE Fees(
     id_fee INTEGER PRIMARY KEY,
     fee_amount INTEGER NOT NULL DEFAULT 2.5,
+    fee_year INTEGER NOT NULL CHECK (fee_year>0),
     --fee_month INTEGER,  --months ahead they have paid for
     id_pay INTEGER REFERENCES Payment
 );
@@ -108,7 +103,7 @@ CREATE TABLE MemberPayment(
 
 CREATE TABLE AssociationHistory(
     id_asso INTEGER PRIMARY KEY,
-    role_asso TEXT NOT NULL,
+    role_asso TEXT NOT NULL CHECK ( role_asso>0),
     year_asso TEXT NOT NULL --ou text?
    
 );
@@ -128,7 +123,7 @@ CREATE TABLE Storage(
 CREATE TABLE MemberStorage(
     login_id INTEGER REFERENCES Member,
     sid INTEGER REFERENCES Storage,
-    quantity INTEGER NOT NULL
+    quantity INTEGER NOT NULL CHECK (quantity > 0)
 
 );
 

@@ -30,7 +30,7 @@ INSERT INTO Person (id_, name, email) VALUES  (7, 'Inês', 'rodrigues@gmail.com'
 INSERT INTO Person (id_, name, email) VALUES  (8, 'admin', 'eyp.geral@gmail.com' );
 
 INSERT INTO NonMember(id_, interest_in_joining) VALUES (1, 'yes');
-INSERT INTO Admin(id_, id_admin) VALUES (1, 1);
+--INSERT INTO Admin(id_, id_admin) VALUES (8, 1); --?
 
 INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status) VALUES  (2, 'social bodies','paid');
 INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status)  VALUES  (3, 'social bodies','paid');
@@ -38,7 +38,10 @@ INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status)  VALUES  (4, 'social bod
 INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status)  VALUES  (5, 'regular','paid');
 INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status)  VALUES  (6, 'regular','behind');
 INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status)  VALUES  (7, 'regular','paid');
+INSERT INTO FeesInfo (id_feeinfo, fee_type, fee_status)  VALUES  (8, 'social bodies','paid');
 
+
+--INSERT INTO Member (id_, gender, joined_date, login_password) VALUES (8, 8, 'admin');
 INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password, id_feeinfo)
  VALUES  (2,'male','Setúbal', '2022-01-01' , 2, 'chiquinho', 2);
 INSERT INTO Member  (id_, gender, city, joined_date, login_id, login_password, id_feeinfo)VALUES  (3,'female','Senhora da Hora', '2021-01-01' , 3, 'isi', 3);
@@ -46,6 +49,8 @@ INSERT INTO Member  (id_, gender, city, joined_date, login_id, login_password, i
 INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password, id_feeinfo) VALUES  (5, 'male','Santo Tirso', '2023-01-01', 5, 'passwordpaulo', 5);
 INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password, id_feeinfo) VALUES  (6,'female','Matosinhos', '2022-01-07' , 6, 'passwordmoura', 6);
 INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password, id_feeinfo) VALUES  (7, 'female','Porto', '2022-01-05' , 7, 'presi', 7);
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password, id_feeinfo) VALUES  (8, 'female','-', '-' , 8, 'admin', 8);
+
 
 INSERT INTO EventHistory(event_id, event_name, event_date, event_type) VALUES (1, 'Iberian IF', '2022', 'IF');
 INSERT INTO EventHistory (event_id, event_name, event_date, event_type)  VALUES (2, 'Lisboa', '2022', 'NSC');
@@ -126,8 +131,8 @@ INSERT INTO MemberPayment(id_pay, login_id) VALUES (8, 4);
 INSERT INTO MemberPayment(id_pay, login_id) VALUES (9, 4);
 --members 5,6,7:
 INSERT INTO MemberPayment(id_pay, login_id) VALUES (10, 5);
-INSERT INTO MemberPayment(id_pay, login_id) VALUES (10, 6);
-INSERT INTO MemberPayment(id_pay, login_id) VALUES (10, 7);
+INSERT INTO MemberPayment(id_pay, login_id) VALUES (11, 6);
+INSERT INTO MemberPayment(id_pay, login_id) VALUES (12, 7);
 
 
 --Fee information of each user. There may be several per user, if there was a change in the fee_amount

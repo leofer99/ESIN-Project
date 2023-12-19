@@ -168,14 +168,24 @@ INSERT INTO MemberEvent(login_id, event_id, event_role) VALUES(2, 1, 'Organiser'
 --STORAGE
 --user views their storage:
 SELECT member.login_id, storage.sid, product_type, quantity
-    FROM Member
-    JOIN MemberStorage ON member.login_id = memberstorage.login_id
+          FROM Member
+          JOIN MemberStorage ON member.login_id = memberstorage.login_id
+          JOIN Storage ON memberstorage.sid = storage.sid
+          WHERE member.login_id=3;
+
+
+SELECT member.login_id, storage.sid, product_type, quantity
+    FROM MemberStorage --ON member.login_id = memberstorage.login_id
     JOIN Storage ON memberstorage.sid = storage.sid
 
- WHERE member.login_id=5  --specific_login_id
+ WHERE memberstorage.login_id=5  --specific_login_id
  ORDER BY storage.sid DESC;
  --GROUP BY member.login_id, storage.sid; 
 
  --user inserts new storage:
- INSERT INTO Storage(sid, product_type) VALUES (1, 'kitchenware');
+ INSERT INTO Storage(product_type) VALUES ('kitchenware');
+ SELECT sid FROM Storage WHERE product_type='kitchenware';
+
  INSERT INTO MemberStorage (login_id, sid, quantity) VALUES (5,  1, 1); --specific_login_id
+
+ 
