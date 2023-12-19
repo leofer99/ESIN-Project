@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/project_style.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws & People Association</title>
    
 </head>
 <body>
     <header>
+    <div class="container">
         <h1>Paws & People Association</h1>
 
         <?php if (isset($_SESSION['login_id'])) { ?>
@@ -20,7 +22,6 @@
 
 
         <nav>
-            <!-- Display membership status here -->
             <ul>
                 <li><a href="project_homepage.php">Home</a></li>
                 <li><a href="project_about_us.php">About Us</a></li>
@@ -28,7 +29,8 @@
                 <li><a href="project_quotas.php"> Quotas Information </a></li>
               </ul>
     
-              <style> 
-              </style>
         </nav>
+        </div>
     </header>
+
+
