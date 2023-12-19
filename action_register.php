@@ -3,6 +3,8 @@
 //pode registar infos inclusive gender, city, etc
 //mas ser aceite pelo admin?
 
+//se for o caso, há 1 série de informações às quais ainda não temos acesso.
+
   session_start();
 
   $username = $_POST['username'];
@@ -34,6 +36,7 @@
     insertUser($username, $password);
     $_SESSION['msg'] = 'Registration successful!';
     header('Location: project_login.php');
+    
   } catch (PDOException $e) {
     $error_msg = $e->getMessage();
 
