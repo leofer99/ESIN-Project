@@ -87,7 +87,7 @@ function getUserInventoryById($login_id) {
     
     return $stmt->fetchAll();
 
-}
+}*/
 
 
     
