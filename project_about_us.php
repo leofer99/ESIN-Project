@@ -1,97 +1,78 @@
 <?php
   session_start();
-
-
 ?>
 
+<!-- About Us Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/project_style.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paws & People Association</title>
-  
-    <!-- Add any additional styles specific to the About Us page -->
-    <style>
-        section {
-            background-color: #f8f8f8;
-            padding: 40px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        section h2 {
-            color: #e44d26;
-            margin-bottom: 20px;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-grid img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <title>Paws & People Association - About Us</title>
 </head>
 <body>
+
     <header>
-        <h1>Paws & People Association</h1>
+        <div class="container">
+            <h1> <a href="project_homepage.php">Paws & People Association</a></h1>
 
-        <?php if (isset($_SESSION['login_id'])) { ?>
-            <form id="logout" action="action_logout.php">
-            <span><?php echo $_SESSION['username'] ?></span>
-            <button>Logout</button>
-            </form>   
-        <?php } ?>
+            <?php if (isset($_SESSION['login_id'])) { ?>
+                <form id="logout" action="action_logout.php">
+                    <span>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></span> <!-- htmlspecialchars for security -->
+                    <button type="submit">Logout</button> <!-- Added type attribute -->
+                </form>   
+            <?php } ?>
 
-        <nav>
-            <!-- Display membership status here -->
-            <ul>
-                <li><a href="project_homepage.php">Home</a></li>
-                <li><a href="project_about_us.php">About Us</a></li>
-                <li><a href="project_login.php">Login</a></li>
-                <li><a href="project_quotas.php">Quotas Information</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="project_homepage.php">Home</a></li>
+                    <li><a href="project_about_us.php">About Us</a></li>
+                    <li><a href="project_login.php">Login</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section>
-        <h2>Welcome to Paws & People!</h2>
-        <p>
-            At Paws & People Association, we believe in the healing power of the human-animal bond. Our organization focuses on leveraging the companionship of animals to provide comfort and support to those facing mental health challenges. Through therapy sessions, educational programs, and community outreach, we aim to make a positive impact on mental health awareness and destigmatization.
-        </p>
-    </section>
-
-    <section>
-        <h2>About Us</h2>
-        <p>
-            Our dedicated team is committed to creating a safe and welcoming space for individuals seeking mental health support. We understand the importance of empathy, understanding, and the unique bond between humans and animals in promoting well-being.
-        </p>
-
-        <div class="photo-grid">
-            <!-- Add photo elements with appropriate image sources -->
-            <img src="path/to/photo1.jpg" alt="Team Photo 1">
-            <img src="path/to/photo2.jpg" alt="Team Photo 2">
-            <img src="path/to/photo3.jpg" alt="Team Photo 3">
+    <!-- About Us Section -->
+    <section class="about-us-section">
+        <div class="container">
+            <h2>We are Paws & People!</h2>
+            <div class="pet-card">
+                <img src="images/chav1.jpg" alt="Description of Photo 1" style="width: 350px; height: 400px; object-fit: cover;">
+                <img src="images/chav2.jpg" alt="Description of Photo 2" style="width: 350px; height: 400px; object-fit: cover;">
+                <!-- Add more images as needed -->
+            </div>
         </div>
     </section>
 
+    <!-- Therapy Pets Section -->
+    <section id="therapy-pets" class="therapy-pets-section">
+        <div class="container">
+            <h2>Meet Our Therapy Pets</h2>
+            <div class="pet-card-grid">
+                <!-- Pet Cards Here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="pet-card">
+                <img src="images/chav4.jpg" alt="Team Photo 1"style="width: 450px; height: auto; object-fit: cover;">
+                <img src="images/chav3.jpg" alt="Description of Photo 3"style="width: 450px; height: 330px; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; Association Name</p>
+        <div class="container">
+            <p>&copy; <?php echo date('Y'); ?> Paws & People Association</p>
+        </div>
     </footer>
 </body>
 </html>
-
