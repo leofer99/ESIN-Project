@@ -23,13 +23,13 @@
 
         <!-- Display membership status here -->
         <?php if ($error_msg == null) { ?>
-          <?php foreach ($user_fees as $row) { ?>
+        
             <article>
-              <span>Fee Type: <?php echo $row['fee_type'] ?></span>
-              <span>Fee Status: <?php echo $row['fee_status'] ?></span>
-              <span>Months Ahead Without Needing To Pay: <?php echo $row['fee_months_ahead'] ?></span>
+              <span> Current Fee Type: </span>
+              <span> Current Fee Status: </span>
+              <span> Months Ahead Without Needing To Pay: </span>
             </article>
-          <?php } ?>
+          
 
         <?php } else { ?>
           <span>  <?php echo $error_msg ?> </span>
@@ -112,11 +112,25 @@
             <?php } ?>
         </table>
  
-          
-
         <?php } else { ?>
           <span>  <?php echo $error_msg ?> </span>
           <?php } ?>
+
+          <form action="action_insert_event_history.php" method="post">
+            <label for="event_name">Event Name:</label>
+            <input type="text" id="event_name" name="event_name" required>
+
+            <label for="event_date">Date:</label>
+            <input type="text" id="event_date" name="event_date" required>
+
+            <label for="event_type">Type:</label>
+            <input type="text" id="event_type" name="event_type" required>
+
+            <label for="event_role">Role:</label>
+            <input type="text" id="event_role" name="event_role" required>
+
+            <button type="submit">Add New Event</button>
+          </form>
 
     </section>
 
