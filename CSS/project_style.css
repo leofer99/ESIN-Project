@@ -151,6 +151,27 @@ section p {
     line-height: 1.8;
 }
 
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    background-color: #daeaff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Centering the container */
+    padding: 15px;
+    width: 50%; /* Adjust to your preference */
+    max-width: 500px; /* Maximum width of the container */
+}
+
+/* Video Element */
+#myVideo {
+    width: 100%; /* Video will take up 100% of the container's width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners */
+}
+
 /* Pet Cards */
 .pet-card {
     display: flex;
@@ -284,5 +305,10 @@ footer p {
 
     .pet-card {
         flex-direction: column;
+    }
+
+    .video-container {
+        width: 80%; /* Increased width on smaller screens */
+        max-width: 400px; /* Adjusted max width for smaller screens */
     }
 }

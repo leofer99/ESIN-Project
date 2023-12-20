@@ -29,6 +29,7 @@
                 <ul>
                     <li><a href="project_homepage.php">Home</a></li>
                     <li><a href="project_about_us.php">About Us</a></li>
+                    <li><a href="project_event.php">Events</a></li>
                     <li><a href="project_login.php">Login</a></li>
                 </ul>
             </nav>
@@ -36,6 +37,20 @@
     </header>
 
     <!-- About Us Section -->
+
+    <section class="hero-section">
+        <div class="container">
+            <h2>We are Paws & People!</h2>
+            <p>Our mission is promote physical and emotional well-being through the human-dog bond.</p>
+            <div class="pet-card">
+                    <img src="images/chav3.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
+                    <img src="images/chav4.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
+            </div>
+                <div>
+                    <p> At Paws & People Association, we believe in the healing power of the human-animal bond. Our organization focuses on leveraging the companionship of animals to provide comfort and support to those facing mental health challenges. Through therapy sessions, educational programs, and community outreach, we aim to make a positive impact on mental health awareness and destigmatization.</p>
+                </div>
+        </div>
+    </section>
     <section class="about-us-section">
         <div class="container">
             <h2>We are Paws & People!</h2>

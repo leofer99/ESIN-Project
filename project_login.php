@@ -32,6 +32,7 @@
                 <ul>
                 <li><a href="project_homepage.php">Home</a></li>
                     <li><a href="project_about_us.php">About Us</a></li>
+                    <li><a href="project_event.php">Events</a></li>
                     <li><a href="project_login.php">Login</a></li>
                 </ul>
             </nav>
@@ -64,7 +65,7 @@
             <h2>Register</h2>
             <form method="POST" action="action_register.php">
                 <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
+                <input type="email" placeholder="Email" name="email">
                 <input type="submit" value="Register">
             </form>
         </div>
