@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS EventHistory;
 DROP TABLE IF EXISTS MemberHistory;
 DROP TABLE IF EXISTS AssociationHistory;
 
+DROP TABLE IF EXISTS NonMember;
 DROP TABLE IF EXISTS Member;
 DROP TABLE IF EXISTS Admin;
 DROP TABLE IF EXISTS Person;
@@ -40,6 +41,13 @@ CREATE TABLE Member (
     login_password VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE NonMember (
+    id_ INTEGER PRIMARY KEY REFERENCES Person,
+    gender TEXT NOT NULL CHECK (gender='female' OR gender='male' OR gender='other'),
+    city TEXT NOT NULL,
+    joined_date TEXT NOT NULL,
+    login_password VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE Admin (
     id_ INTEGER PRIMARY KEY REFERENCES Person,
