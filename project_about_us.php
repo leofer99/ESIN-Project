@@ -41,7 +41,7 @@
     <section class="hero-section">
         <div class="container">
             <h2>This is Paws & People!</h2>
-            <div class="pet-card">
+            <div class="pet-cardinho">
                     <img src="images/chav3.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
                     <img src="images/chav4.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
             </div>
@@ -62,11 +62,8 @@
         <div class="container">
             <h2> Meet our Chavinho!</h2>
             <div class="pet-card">
-                    <img src="images/chav3.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
                     <img src="images/chav4.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
-            </div>
-            <div>
-                <p> The most highly trained dog specialist in human care! Order of the fenix .</p>
+                <p> A skilled and compassionate dog, trained specialist in providing emotional support and comfort with remarkable intuition and unwavering dedication to those in need.</p>
             </div>
         </div>
     </section>
