@@ -5,12 +5,12 @@
      $id_ = $_GET['id_'];
 
      require_once('database/init.php');
-     require_once('database/remove.php');
-
+     require_once('database/insert.php');
 
       try {
         $success= insertUser($id_);
-        $_SESSION['msg'] = 'Inventory removed successfully!';
+        //var_dump( $success);
+        $_SESSION['msg'] = 'User added successfully! Login_id:'. $id_;
         header('Location: project_quotas.php'); 
 
 
@@ -22,8 +22,7 @@
 
      }
 
-    # redirect user to wherever they were already
-    header('location: ' . $_SERVER['HTTP_REFERER']);
+   
 
 
 ?>
