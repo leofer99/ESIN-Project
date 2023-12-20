@@ -42,20 +42,15 @@
     <section class="hero-section">
         <div class="container">
             <h2>Welcome to Paws & People!</h2>
-            <p>The transformative journey of the human-animal bond. Promoting mental health and well-being through dogs companion.</p>
+            <p>Promoting mental health and well-being through our best friends</p>
             <div class="video-container">
-                <video id="myVideo" controls>
+                <video id="myVideo" autoplay muted loop>
                     <source src="video/v3.mp4" type="video/mp4">
                 </video>
             </div>
-                <div>
-                    <p> At Paws & People Association, we believe in the healing power of the human-animal bond. Our organization focuses on leveraging the companionship of animals to provide comfort and support to those facing mental health challenges. Through therapy sessions, educational programs, and community outreach, we aim to make a positive impact on mental health awareness and destigmatization.</p>
-                </div>
+            
         </div>
     </section>
-
-    <!-- Add other sections as needed -->
-
     <footer>
         <div class="container">
             <p>&copy; <?php echo date('Y'); ?> Paws & People Association</p>

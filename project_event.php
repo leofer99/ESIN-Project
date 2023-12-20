@@ -20,8 +20,8 @@
 
             <?php if (isset($_SESSION['login_id'])) { ?>
                 <form id="logout" action="action_logout.php">
-                    <span>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></span> <!-- htmlspecialchars for security -->
-                    <button type="submit">Logout</button> <!-- Added type attribute -->
+                    <span>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                    <button type="submit">Logout</button>
                 </form>   
             <?php } ?>
 
@@ -36,35 +36,44 @@
         </div>
     </header>
 
-    <!-- About Us Section -->
-    <section class="about-us-section">
+   <!-- Events Section -->
+    <section class="events-section">
         <div class="container">
-            <h2>We are Paws & People!</h2>
-            <div class="pet-card">
-                <img src="images/chav1.jpg" alt="Description of Photo 1" style="width: 350px; height: 400px; object-fit: cover;">
-                <img src="images/chav2.jpg" alt="Description of Photo 2" style="width: 350px; height: 400px; object-fit: cover;">
-                <!-- Add more images as needed -->
+            <h2>Upcoming Events</h2>
+            <div class="event-list">
+                <div class="event-item">
+                    <h3>Dog Therapy Workshop</h3>
+                    <p>Date: January 15, 2024</p>
+                    <p>Location: Community Center, 123 Main Street</p>
+                    <p>Description: Join us for a workshop on the benefits of dog therapy for emotional support and recovery.</p>
+                </div>
+                <div class="event-item">
+                    <h3>Pet Adoption Day</h3>
+                    <p>Date: February 20, 2024</p>
+                    <p>Location: Local Park, 456 Elm Avenue</p>
+                    <p>Description: Looking for a new furry friend? Come meet adoptable dogs in need of loving homes.</p>
+                </div>
+                <!-- Additional events here -->
             </div>
         </div>
     </section>
 
-    <!-- Therapy Pets Section -->
-    <section id="therapy-pets" class="therapy-pets-section">
+    <section class="events-section">
         <div class="container">
-            <h2>Meet Our Therapy Pets</h2>
-            <div class="pet-card-grid">
-                <!-- Pet Cards Here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <h2>Meet Our Team</h2>
-            <div class="pet-card">
-                <img src="images/chav4.jpg" alt="Team Photo 1"style="width: 450px; height: auto; object-fit: cover;">
-                <img src="images/chav3.jpg" alt="Description of Photo 3"style="width: 450px; height: 330px; object-fit: cover;">
+            <h2>Past Events</h2>
+            <div class="event-list">
+                <div class="event-item">
+                    <h3>Doggy dinner party</h3>
+                    <p>Date: December 13, 2023</p>
+                    <p>Location: Community Center, 123 Main Street</p>
+                </div>
+                <div class="event-item">
+                    <h3>Pet Adoption Day</h3>
+                    <p>Date: February 20, 2024</p>
+                    <p>Location: Local Park, 456 Elm Avenue</p>
+                    <p>Description: Looking for a new furry friend? Come meet adoptable dogs in need of loving homes.</p>
+                </div>
+                <!-- Additional events here -->
             </div>
         </div>
     </section>
