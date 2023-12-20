@@ -1,29 +1,95 @@
 <?php
 
-      function insertUserInventory($dbh, $login_id, $product_type, $quantity) {
+function insertNewcomer($name, $email, $phone_number) {
+  try {
+  global $dbh;
+  $stmt = $dbh->prepare('INSERT INTO Person (name, email, phone_number) VALUES (?, ?, ?)');
+  return $stmt->execute(array($name, $email, $phone_number));
+  
+} catch (PDOException $e) {
+    $error_msg = $e->getMessage();
+    $_SESSION['msg'] = 'Error creating new registration: ' . $error_msg;
+    return false; // Return false if there is an error
+  }
+}
+
+//  INACABADA
+function insertUser($id_, $login_id, $password) {
+    try {
+    global $dbh;
+    $stmt = $dbh->prepare('INSERT INTO Member (id_, login_id, login_password) VALUES (?, ?, ?);');
+    $stmt->execute(array($login_id, hash('sha256', $password), $id_));
+  } catch (PDOException $e) {
+    $error_msg = $e->getMessage();
+    $_SESSION['msg'] = 'Error creating new user: ' . $error_msg;
+    return false; // Return false if there is an error
+  }
+}
+
+function insertUserInventory($login_id, $product_type, $quantity) {
       
-        try {
+      try {
       // Insert data into the table
+      global $dbh;
       $stmt = $dbh->prepare('INSERT INTO Storage(product_type) VALUES (?);');
       $stmt->execute(array($product_type));
   
       //Find the corresponding sid
       $stmt = $dbh->prepare('SELECT sid FROM Storage WHERE product_type=?;');
       $stmt->execute(array($product_type));
-      $sid=$stmt->fetch();
+      $sid=$stmt->fetchColumn();
   
       //Add the quantity
       $stmt = $dbh->prepare('INSERT INTO MemberStorage (login_id, sid, quantity) VALUES (?, ?, ?);');
       $stmt->execute(array($login_id, $sid, $quantity));
-          
+      
       return true;
       
       } catch (PDOException $e) {
         $error_msg = $e->getMessage();
-        $_SESSION['msg'] = 'Error inserting data: ' . $error_msg;
+        $_SESSION['msg'] = 'Error inserting new inventory: ' . $error_msg;
         return false; // Return false if there is an error
       }
-    }
+  }
+
+  function insertNewEvent($login_id, $event_name, $event_date, $event_type, $event_role) {
+    try {
+      // Insert data into the table
+      global $dbh;
+      $stmt = $dbh->prepare('INSERT INTO EventHistory (event_name, event_date, event_type) VALUES (?, ?, ?);');
+      $stmt->execute(array($event_name, $event_date, $event_type));
+  
+      //Find the corresponding id
+      $stmt = $dbh->prepare('SELECT event_id FROM EventHistory WHERE event_name=? AND event_date=? AND event_type=?;');
+      $stmt->execute(array($event_name, $event_date, $event_type));
+      $event_id=$stmt->fetchColumn();
+  
+      //Add the quantity
+      $stmt = $dbh->prepare('INSERT INTO MemberEvent (login_id, event_id, event_role) VALUES (?, ?, ?);');
+      $stmt->execute(array($login_id, $event_id, $event_role));
+      
+      return true;
+      
+      } catch (PDOException $e) {
+        $error_msg = $e->getMessage();
+        $_SESSION['msg'] = 'Error inserting new event: ' . $error_msg;
+        return false; // Return false if there is an error
+      }
+
+  }
+
+  function insertNewPayment($login_id, $event_name, $event_date, $event_type, $event_role) {
+    try {
+      
+      return true;
+      
+      } catch (PDOException $e) {
+        $error_msg = $e->getMessage();
+        $_SESSION['msg'] = 'Error inserting new payment: ' . $error_msg;
+        return false; // Return false if there is an error
+      }
+
+  }
 
 
 ?>
