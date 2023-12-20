@@ -25,15 +25,17 @@
     $user_paid=getUserAmountPaid($login_id);
     $user_debt=getUserDebt($login_id);
 
-    //$balance=$user_paid-$user_debt;
-    $balance=0;
+    $user_paid=$user_paid[0]['total_paid'];
+    $user_debt=$user_debt[0]['payment_owed'];
+
+    $balance=$user_paid-$user_debt;
 
     if ($balance<-50) {
       $fee_status='Danger of expulsion';
     } elseif ($balance<0) {
         $fee_status="Behind on payment";
     } else {
-        $fee_status='paid';
+        $fee_status='Paid';
     }
 
     //Admin Functions:
