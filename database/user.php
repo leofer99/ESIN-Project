@@ -1,14 +1,43 @@
 <?php
 
+//successful login
+function loginSuccess($login_id, $password) {
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT login_id, login_password FROM Member WHERE login_id = ? AND login_password = ?;');
+    $stmt->execute(array($login_id, $password));
+    return $stmt->fetch();
+  }
+
+//finds username using the login_id
+function findUsernameByLoginId($login_id) {
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT name FROM Member 
+    JOIN Person ON member.id_=person.id_
+    WHERE login_id = ?;');
+    $stmt->execute(array($login_id));
+    return $stmt->fetch();
+}
+
 //selects user's info
 function getUserInfoById($login_id) {
-global $dbh;
-$stmt = $dbh->prepare('SELECT name, email, gender, city, joined_date
-    FROM Person
-    JOIN Member ON member.id_=person.id_
-WHERE member.login_id=?;');
-$stmt->execute(array($login_id));
-return $stmt->fetchAll();
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT name, email, gender, city, joined_date
+        FROM Person
+        JOIN Member ON member.id_=person.id_
+    WHERE member.login_id=?;');
+    $stmt->execute(array($login_id));
+    return $stmt->fetchAll();
+}
+
+function getAnnualFees() {
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT fee_year, fee_amount
+        FROM Fees
+        JOIN MemberFees ON memberfees.id_fee=fees.id_fee
+        JOIN Member ON member.login_id=memberfees.login_id
+        WHERE member.login_id=?;');
+    $stmt->execute(array($login_id));
+    return $stmt->fetchAll();
 }
 
 function getUserFeesInfoById($login_id) {
@@ -38,12 +67,12 @@ function  getUserPaymentHistoryById($login_id) {
 
 function getUserAssociationHistoryById($login_id) {
     global $dbh;
-    $stmt = $dbh->prepare('SELECT member.login_id, memberhistory.id_asso, role_asso, year_asso
+    $stmt = $dbh->prepare('SELECT member.login_id, memberhistory.id_asso, role_asso, role_date_begin
         FROM Member
         JOIN MemberHistory ON member.login_id = memberhistory.login_id
         JOIN AssociationHistory ON associationhistory.id_asso = memberhistory.id_asso
     WHERE member.login_id=?  --specific_login_id
-    ORDER BY year_asso DESC;');
+    ORDER BY role_date_begin DESC;');
     $stmt->execute(array($login_id));
     
     return $stmt->fetchAll();
@@ -75,19 +104,4 @@ function getUserInventoryById($login_id) {
     return $stmt->fetchAll();
 }
 
-/*function $members= getAllMembers() {
-    global $dbh;
-    $stmt = $dbh->prepare('SELECT product_type, quantity
-    FROM Member
-    JOIN MemberStorage ON member.login_id = memberstorage.login_id
-    JOIN Storage ON memberstorage.sid = storage.sid
-    WHERE member.login_id=?  --specific_login_id
-    ORDER BY storage.sid DESC;');
-    $stmt->execute(array($login_id));
-    
-    return $stmt->fetchAll();
-
-}*/
-
-
-    
+?>
