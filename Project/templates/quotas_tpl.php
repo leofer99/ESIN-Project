@@ -1,39 +1,25 @@
 <section>
-<article>
-    <h2 class="event">User Info</h2>
-    <?php if ($error_msg == null) { ?>
-        <table class="user-info-table">
-            <?php foreach ($user_infos as $row) { ?>
-                <tr>
-                    <th><strong>Name:</strong></th>
-                    <td><?php echo $row['name'] ?></td>
-                </tr>
-                <tr>
-                    <th><strong>Email:</strong></th>
-                    <td><?php echo $row['email'] ?></td>
-                </tr>
-                <tr>
-                    <th><strong>Gender:</strong></th>
-                    <td><?php echo $row['gender'] ?></td>
-                </tr>
-                <tr>
-                    <th><strong>City:</strong></th>
-                    <td><?php echo $row['city'] ?></td>
-                </tr>
-                <tr>
-                    <th><strong>Joined Date:</strong></th>
-                    <td><?php echo $row['joined_date'] ?></td>
-                </tr>
-            <?php } ?>
-        </table>
-    <?php } else { ?>
-        <div class="error-message"><?php echo $error_msg ?></div>
-    <?php } ?>
-</article>
-</section>
+        <h2>User Info</h2>
+        <!-- Display membership status here -->
+        <?php if ($error_msg == null) { ?>
+          <?php foreach ($user_infos as $row) { ?>
+            <article>
+              <span>Name: <?php echo $row['name'] ?></span>
+              <span>Email: <?php echo $row['email'] ?></span>
+              <span>Gender: <?php echo $row['gender'] ?></span>
+              <span>City: <?php echo $row['city'] ?></span>
+              <span>Joined Date: <?php echo $row['joined_date'] ?></span>
+            </article>
+          <?php } ?>
+
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
+    </section>
 
     <section>
-        <h2 class="event">Fees Payment Info</h2>
+        <h2>Fees Payment Info</h2>
 
         <!-- Display membership status here -->
         <?php if ($error_msg == null) { ?>
@@ -62,7 +48,7 @@
     </section>
 
     <section>
-        <h2 class="event">Annual Fee</h2>
+        <h2>Annual Fee</h2>
         <?php if ($error_msg == null) { ?>
           <?php if(empty($all_fees)) { ?>
           <p>No annual fee</p>
@@ -91,7 +77,7 @@
     
 
     <section id="payments">
-        <h2 class="event">Payment History</h2>
+        <h2>Payment History</h2>
         <?php if ($error_msg == null) { ?>
         <table>
             <tr>
@@ -119,7 +105,7 @@
 
 
     <section>
-        <h2 class="event">Association History</h2>
+        <h2>Association History</h2>
         <?php if ($error_msg == null) { ?>
         <table>
             <tr>
@@ -147,7 +133,7 @@
     </section>
 
     <section>
-        <h2 class="event">Event History</h2>
+        <h2>Event History</h2>
         <?php if ($error_msg == null) { ?>
           
         <table>
@@ -192,7 +178,7 @@
     </section>
 
     <section>
-        <h2 class="event">Inventory</h2>
+        <h2>Inventory</h2>
         <?php if ($error_msg == null) { ?>
         <table>
             <tr>
