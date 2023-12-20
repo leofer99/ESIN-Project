@@ -1,10 +1,10 @@
 <?php
 
 //successful login
-function loginSuccess($login_id, $login_password) {
+function loginSuccess($login_id, $password) {
     global $dbh;
     $stmt = $dbh->prepare('SELECT login_id, login_password FROM Member WHERE login_id = ? AND login_password = ?;');
-    $stmt->execute(array($login_id, hash('sha256', $login_password)));
+    $stmt->execute(array($login_id, $password));
     return $stmt->fetch();
   }
 

@@ -13,7 +13,7 @@
                 <!-- Google Maps Embed for Location -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dXXXXX!2dXXXXX!3dXXXXX!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xXXXXX%3A0xXXXXX!2sCommunity+Center!5e0!3m2!1sen!2s!4vXXXXXXXX" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <!-- Registration Link -->
-                <p><a href="registration_dog_therapy_workshop.php">Click here to register</a></p>
+                <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScy_suJ0QTqJd5dT1ZiTAXKskxD8KRu705zYmsDBYNmAiPjOg/viewform">Click here to register</a></p>
             </div>
 
             <!-- Pet Adoption Day Event -->
@@ -25,7 +25,7 @@
                 <!-- Google Maps Embed for Location -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dXXXXX!2dXXXXX!3dXXXXX!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xXXXXX%3A0xXXXXX!2sLocal+Park!5e0!3m2!1sen!2s!4vXXXXXXXX" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <!-- Registration Link -->
-                <p><a href="registration_pet_adoption_day.php">Click here to register</a></p>
+                <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScy_suJ0QTqJd5dT1ZiTAXKskxD8KRu705zYmsDBYNmAiPjOg/viewform">Click here to register</a></p>
             </div>
         </div>
     </div>

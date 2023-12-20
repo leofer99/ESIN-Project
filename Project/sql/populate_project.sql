@@ -28,35 +28,16 @@ INSERT INTO Person (id_, name, email, phone_number) VALUES  (6, 'Maria', 'moura@
 INSERT INTO Person (id_, name, email, phone_number) VALUES  (7, 'Inês', 'rodrigues@gmail.com', '971111111');
 INSERT INTO Person (id_, name, email, phone_number) VALUES  (8, 'admin', 'eyp.geral@gmail.com', '-');
 
-INSERT INTO NonMember(id_, gender, city, joined_date, login_password) VALUES 
-(1, 'female','Santo Tirso', '2019-01-01' , 
-'a07a3e6ae8dd04de4d9a8f3ab6cc35b2f306a660b02f3133979ee27b8e6273df');
+--INSERT INTO NonMember(id_, interest_in_joining) VALUES (1, 'yes');
 --INSERT INTO Admin(id_, id_admin) VALUES (8, 1); --?
 
---ID / Password:
---1 / consti
---2 / chiquinho
---3 / isi
---4 / passwordana
---5 / passwordpaulo
---6 / passwordmoura
---7 / presi
---8 /admin
-
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (2,'male','Setúbal', '2022-01-01' , 2, 
-'6216a16bcd8f9dee3526de2cb7fb8692537b6cd3f304bed06e2134ec966de439'); 
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password)VALUES  (3,'female','São Mamede', '2019-01-01' , 3, 
-'55c123196402ef4b16c36bad51f12467397146987c479d41375831d1de9ed935');
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (4,'female','Matosinhos', '2022-06-01' , 4, 
-'610a62746209bf8a20e2e0a3cccd0b6f765731d28301d94721f8e33864dcbdc0');
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (5, 'male','Santo Tirso', '2023-01-01', 5, 
-'ac45872db89be99e240e607ec5062420b261a0817cb65ac2c7afd24eef4c1f2f');
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (6,'female','Matosinhos', '2022-01-07' , 6, 
-'94dda5560782c65c1b9154529ebbab1d30a5be6e09e3672aa9f9ea7a9e7a0d37');
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (7, 'female','Porto', '2022-01-05' , 7, 
-'2f50c41d1b24d06d157dc3176438b318b394422b01b8868426326d153306f393');
-INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (8, 'female','-', '-' , 8, 
-'8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (2,'male','Setúbal', '2022-01-01' , 2, 'chiquinho');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password)VALUES  (3,'female','São Mamede', '2019-01-01' , 3, 'isi');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (4,'female','Matosinhos', '2022-06-01' , 4, 'passwordana');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (5, 'male','Santo Tirso', '2023-01-01', 5, 'passwordpaulo');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (6,'female','Matosinhos', '2022-01-07' , 6, 'passwordmoura');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (7, 'female','Porto', '2022-01-05' , 7, 'presi');
+INSERT INTO Member (id_, gender, city, joined_date, login_id, login_password) VALUES  (8, 'female','-', '-' , 8, 'admin');
 
 INSERT INTO EventHistory(event_id, event_name, event_date, event_type) VALUES (1, 'Iberian IF', '2022', 'IF');
 INSERT INTO EventHistory (event_id, event_name, event_date, event_type)  VALUES (2, 'Lisboa', '2022', 'NSC');
