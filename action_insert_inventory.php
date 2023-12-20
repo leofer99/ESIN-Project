@@ -2,6 +2,7 @@
      session_start();
      $error_msg=null;
 
+     require_once('database/init.php');
      require_once('database/insert.php');
 
      // Get user input from the form
@@ -23,29 +24,10 @@
      }
 
      else {
-      try {
-        $dbh = new PDO('sqlite:sql/project_.db');
-        $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sid=null; $result=null;
-
-         // Insert data into the table
-         $stmt = $dbh->prepare('INSERT INTO Storage(product_type) VALUES (?);');
-         $result=$stmt->execute(array($product_type));
-     
-         //Find the corresponding sid
-         $stmt = $dbh->prepare('SELECT sid FROM Storage WHERE product_type=?;');
-         $stmt->execute(array($product_type));
-         $sid=$stmt->fetchColumn();
-         //fetch() retrieves only one row as an associative array, 
-         // you should use $sid = $stmt->fetchColumn()
-
-         //Add the quantity
-         $stmt = $dbh->prepare('INSERT INTO MemberStorage (login_id, sid, quantity) VALUES (?, ?, ?);');
-         $result=$stmt->execute(array($login_id, $sid, $quantity));
-         $_SESSION['msg'] = 'Inventory placed successfully!';
-         header('Location: project_quotas.php'); 
+      try {          
+        $success= insertUserInventory($login_id, $product_type, $quantity);
+        $_SESSION['msg'] = 'Inventory placed successfully!';
+        header('Location: project_quotas.php'); 
 
 
      } catch (PDOException $e) {
