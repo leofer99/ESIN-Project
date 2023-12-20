@@ -1,3 +1,7 @@
+<?php //$password='consti'; echo hash('sha256', $password);
+echo $_SESSION['msg'];
+ ?> 
+
 <section>
         <h2>New Registrations</h2>
       
