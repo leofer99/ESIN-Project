@@ -171,9 +171,9 @@ section p {
 /* Pet Cards */
 .pet-card {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the start of the card */
     align-items: center;
-    gap: 50px;
+    gap: 20px; /* Adjust gap size for better spacing */
     border: 1px solid #dcdcdc;
     border-radius: 12px;
     background-color: #daeaff;
@@ -190,10 +190,34 @@ section p {
     border-radius: 5px;
 }
 
+.pet-card-content {
+    flex: 1; /* Allows text content to take up remaining space */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+}
+
+.pet-card-content h3, 
+.pet-card-content p {
+    margin: 0; /* Removes default margins */
+    padding: 5px 0; /* Adds padding for better readability */
+}
+
+.pet-card-content h3 {
+    font-size: 1.2em; /* Adjust font size as needed */
+    font-weight: bold;
+}
+
+.pet-card-content p {
+    font-size: 1em; /* Adjust font size as needed */
+    color: #333; /* Adjust text color as needed */
+}
+
 .pet-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Container for Buttons */
 .button-container {

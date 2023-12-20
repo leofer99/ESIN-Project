@@ -78,55 +78,181 @@
 ?>
 
 
-<header>
-        <div class="container">
-            <h1>Association Management System</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/project_style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Management System</title>
+  
+</head>
+<body>
+    <header>
+        <h1>Association Management System</h1>
 
-            <?php if (isset($_SESSION['login_id'])) { ?>
-                <form id="logout" action="action_logout.php">
-                    <span><?php echo $_SESSION['username'] ?></span>
-                    <button>Logout</button>
-                </form>   
-            <?php } ?>
+        <?php if (isset($_SESSION['login_id'])) { ?>
+            <form id="logout" action="action_logout.php">
+            <span><?php echo $_SESSION['username'] ?></span>
+            <button>Logout</button>
+            </form>   
+        <?php } ?>
 
-            <nav>
-                <ul>
-                    <li><a href="project_homepage.php">Home</a></li>
-                    <li><a href="project_about_us.php">About Us</a></li>
-                    <li><a href="project_login.php">Login</a></li>
-                    <li><a href="project_quotas.php">Quotas Information</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <!-- Display membership status here -->
+            <ul>
+                <li><a href="project_homepage.php">Home</a></li>
+                <li><a href="project_about_us.php">About Us</a></li>
+                <li><a href="project_login.php">Login</a></li>
+                <li><a href="project_quotas.php"> Quotas Information </a></li>
+              </ul> 
+        </nav>
+
     </header>
 
-    <section class="user-info-section">
-        <div class="container">
-            <h2>User Info</h2>
-            <?php if ($error_msg == null) { ?>
-                <?php foreach ($user_infos as $row) { ?>
-                    <article>
-                        <span>Name: <?php echo $row['name'] ?></span>
-                        <span>Email: <?php echo $row['email'] ?></span>
-                        <span>Gender: <?php echo $row['gender'] ?></span>
-                        <span>City: <?php echo $row['city'] ?></span>
-                        <span>Joined Date: <?php echo $row['joined_date'] ?></span>
-                    </article>
-                <?php } ?>
+    <section>
+        <h2>User Info</h2>
+        <!-- Display membership status here -->
+        <?php if ($error_msg == null) { ?>
+          <?php foreach ($user_infos as $row) { ?>
+            <article>
+              <span>Name: <?php echo $row['name'] ?></span>
+              <span>Email: <?php echo $row['email'] ?></span>
+              <span>Gender: <?php echo $row['gender'] ?></span>
+              <span>City: <?php echo $row['city'] ?></span>
+              <span>Joined Date: <?php echo $row['joined_date'] ?></span>
+            </article>
+          <?php } ?>
 
-            <?php } else { ?>
-                <span><?php echo $error_msg ?></span>
-            <?php } ?>
-        </div>
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
     </section>
 
-    <!-- Add other sections as needed -->
+    <section>
+        <h2>Fees Payment Info</h2>
+
+        <!-- Display membership status here -->
+        <?php if ($error_msg == null) { ?>
+          <?php foreach ($user_fees as $row) { ?>
+            <article>
+              <span>Fee Type: <?php echo $row['fee_type'] ?></span>
+              <span>Fee Status: <?php echo $row['fee_status'] ?></span>
+              <span>Months Ahead Without Needing To Pay: <?php echo $row['fee_months_ahead'] ?></span>
+            </article>
+          <?php } ?>
+
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
+    </section>
+
+    <section id="payments">
+        <h2>Payment History</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Amount Paid</th>
+                <th>Type of Payment</th>
+            </tr>
+             <!-- Display payment history table rows here -->
+        </table>
+
+            <?php if ($error_msg == null) { ?>
+          <?php foreach ($payments as $row) { ?>
+            <article>
+            <span><?php echo $row['date_payment'] ?></span>
+              <span> <?php echo $row['amount_paid'] ?>€ </span>
+              <span class="price"><?php echo $row['type_payment'] ?></span>
+            </article>
+          <?php } ?>
+
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+    </section>
+
+
+    <section>
+        <h2>Association History</h2>
+        <table>
+            <tr>
+                <th>Role</th>
+                <th>Year</th>
+            </tr>
+           <!-- Display association history here -->
+        </table>
+        <?php if ($error_msg == null) { ?>
+          <?php foreach ($association as $row) { ?>
+            <article>
+            <span><?php echo $row['role_asso'] ?></span>
+              <span> <?php echo $row['year_asso'] ?>€ </span>
+            </article>
+          <?php } ?>
+        
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
+    </section>
+
+    <section>
+        <h2>Event History</h2>
+        <table>
+            <tr>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Event Type</th>
+                <th>Event Role</th>
+            </tr>
+            <!-- Display event history table rows here -->
+        </table>
+
+        <?php if ($error_msg == null) { ?>
+          <?php foreach ($events as $row) { ?>
+            <article>
+              <span><?php echo $row['event_name'] ?></span>
+              <span> <?php echo $row['event_date'] ?> </span>
+              <span> <?php echo $row['event_type'] ?> </span>
+              <span> <?php echo $row['event_role'] ?> </span>
+
+            </article>
+          <?php } ?>
+
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
+    </section>
+
+    <section>
+        <h2>Inventory</h2>
+        <table>
+            <tr>
+                <th>Product Type</th>
+                <th>Quantity</th>
+            </tr>
+                    <!-- Display inventory information here -->
+        </table>
+
+        <?php if ($error_msg == null) { ?>
+          <?php foreach ($inventory as $row) { ?>
+            <article>
+            <span><?php echo $row['product_type'] ?></span>
+              <span> <?php echo $row['quantity'] ?> </span>
+            </article>
+          <?php } ?>
+
+        <?php } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
+    </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; <?php echo date('Y'); ?> Paws & People Association</p>
-        </div>
+        <p>&copy; Association Name</p>
     </footer>
-
 </body>
 </html>

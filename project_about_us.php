@@ -58,6 +58,18 @@
             </div>
         </div>
     </section>
+    <section class="hero-section">
+        <div class="container">
+            <h2> Meet our Chavinho!</h2>
+            <div class="pet-card">
+                    <img src="images/chav3.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
+                    <img src="images/chav4.jpg" alt="Team Photo" style="width: 450px; height: auto; object-fit: cover;">
+            </div>
+            <div>
+                <p> The most highly trained dog specialist in human care! Order of the fenix .</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
