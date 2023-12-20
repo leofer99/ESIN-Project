@@ -14,12 +14,21 @@
     <section class="register-section">
         <div class="container">
         <h2>Register</h2>
+        <?php //if (!isset($_SESSION['login_id'])) { //appears when user hasn't done the login
+                ?>
         <form method="POST" action="action_register.php">
-            <input type="text" placeholder="username" name="username">
-            <input type="password" placeholder="password" name="password">
+            <input type="text" placeholder="Full Name" name="name">
+            <input type="text" placeholder="Email" name="email">
+            <input type="text" placeholder="Phone Number" name="phone_number">
             <input type="submit" value="Register">
             <a href="project_login.php"></a>
             </form>
+
+            <?php /*} 
+            else { ?>
+                <span>You're already logged in as <?php echo $_SESSION['username']; ?>!</span>
+            <?php }*/ ?>
+            
             </div>
     </section> 
 
@@ -34,6 +43,8 @@
                     <input type="password" placeholder="Password" name="password">
                     <input type="submit" value="Login">
                 </form>
+
+
             <?php } else { ?>
                 <span>You're already logged in as <?php echo $_SESSION['username']; ?>!</span>
             <?php } ?>

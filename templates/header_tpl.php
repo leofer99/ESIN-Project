@@ -26,8 +26,12 @@
                 <li><a href="project_homepage.php">Home</a></li>
                 <li><a href="project_about_us.php">About Us</a></li>
                 <li><a href="project_login.php">Login</a></li>
-                <li><a href="project_quotas.php"> Quotas Information </a></li>
-              </ul>
+                    <?php  if ($_SESSION['login_id']==8) {  //if admin user ?>
+                        <li><a href="project_quotas.php"> Admin Information </a></li>
+                        <?php } else { ?>
+                        <li><a href="project_quotas.php"> User Information </a></li>
+                        <?php }?>
+            </ul>
     
         </nav>
         </div>

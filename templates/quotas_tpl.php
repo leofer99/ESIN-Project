@@ -23,19 +23,58 @@
 
         <!-- Display membership status here -->
         <?php if ($error_msg == null) { ?>
-          <?php foreach ($user_fees as $row) { ?>
-            <article>
-              <span>Fee Type: <?php echo $row['fee_type'] ?></span>
-              <span>Fee Status: <?php echo $row['fee_status'] ?></span>
-              <span>Months Ahead Without Needing To Pay: <?php echo $row['fee_months_ahead'] ?></span>
-            </article>
-          <?php } ?>
+          <table>
+            <tr>
+                <th>Amount Paid </th>
+                <th>Amount Owed </th>
+                <th>Balance </th>
+                <th>Fee Status </th>
+            </tr>
+              
+          <?php  ?>
+            <tr>
+            <td><?php echo $user_paid ?>€</td>
+            <td><?php echo $user_debt ?>€</td>
+            <td><?php echo $balance?>€</td>
+            <td><?php echo $fee_status ?></td>
 
+            </tr>
+            
+          </table>
         <?php } else { ?>
           <span>  <?php echo $error_msg ?> </span>
           <?php } ?>
 
     </section>
+
+    <section>
+        <h2>Annual Fee</h2>
+        <?php if ($error_msg == null) { ?>
+          <?php if(empty($all_fees)) { ?>
+          <p>No annual fee</p>
+          <?php } else { ?>
+        <table>
+            <tr>
+                <th>Fee Year</th>
+                <th>Fee Amount</th>
+            </tr>
+              
+          <?php foreach ($all_fees as $row) { ?>
+            <tr>
+            <td><?php echo $row['fee_year'] ?></td>
+            <td><?php echo $row['fee_amount'] ?>€</td>
+
+            </tr>
+          <?php } ?>
+
+          </table>
+        
+        <?php } } else { ?>
+          <span>  <?php echo $error_msg ?> </span>
+          <?php } ?>
+
+    </section>
+    
 
     <section id="payments">
         <h2>Payment History</h2>
@@ -71,13 +110,17 @@
         <table>
             <tr>
                 <th>Role</th>
-                <th>Year</th>
+                <th>Begin Date</th>
+                <th>End Date</th>
+
             </tr>
               
           <?php foreach ($association as $row) { ?>
             <tr>
-            <td><?php echo $row['role_asso'] ?></td>
-              <td> <?php echo $row['year_asso'] ?> </td>
+              <td><?php echo $row['role_asso'] ?></td>
+              <td> <?php echo $row['role_date_begin'] ?> </td>
+              <td> <?php echo $row['role_date_end'] ?> </td>
+
             </tr>
           <?php } ?>
 
@@ -112,11 +155,25 @@
             <?php } ?>
         </table>
  
-          
-
         <?php } else { ?>
           <span>  <?php echo $error_msg ?> </span>
           <?php } ?>
+
+          <form action="action_insert_event_history.php" method="post">
+            <label for="event_name">Event Name:</label>
+            <input type="text" id="event_name" name="event_name" required>
+
+            <label for="event_date">Date:</label>
+            <input type="text" id="event_date" name="event_date" required>
+
+            <label for="event_type">Type:</label>
+            <input type="text" id="event_type" name="event_type" required>
+
+            <label for="event_role">Role:</label>
+            <input type="text" id="event_role" name="event_role" required>
+
+            <button type="submit">Add New Event</button>
+          </form>
 
     </section>
 
@@ -127,11 +184,13 @@
             <tr>
                 <th>Product Type</th>
                 <th>Quantity</th>
+                
             </tr>
             <?php foreach ($inventory as $row) { ?>
             <tr>
             <td><?php echo $row['product_type'] ?></td>
               <td> <?php echo $row['quantity'] ?> </td>
+              <td><a href="action_remove_inventory.php?sid=<?php echo $row['sid']; ?>">X</a></td> 
             </tr>
           <?php } ?>
 
