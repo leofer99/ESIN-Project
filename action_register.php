@@ -1,47 +1,43 @@
 <?php
-//vale a pena ter um register??
-//pode registar infos inclusive gender, city, etc
-//mas ser aceite pelo admin?
-
-//se for o caso, há 1 série de informações às quais ainda não temos acesso.
-
   session_start();
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  require_once('database/init.php');
+  require_once('database/insert.php');
 
-  function insertUser($username, $password) {
-    global $dbh;
-    $stmt = $dbh->prepare('INSERT INTO Member (login_id, password) VALUES (?, ?)');
-    $stmt->execute(array($username, hash('sha256', $password)));
-  }
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone_number = $_POST['phone_number'];
 
-  if (strlen($username) == 0) {
-    $_SESSION['msg'] = 'Invalid username!';
-    header('Location: project_login.php');
+  if (strlen($name) == 0) {
+    $_SESSION['msg'] = 'Invalid Name!';
+    header('Location: registration.php');
     die();
   }
 
-  if (strlen($password) < 8) {
-    $_SESSION['msg'] = 'Password must have at least 8 characters.';
-    header('Location: project_login.php');
+  if (strlen($email) == 0) {
+    $_SESSION['msg'] = 'Invalid Email!';
+    header('Location: registration.php');
     die();
   }
 
+  if (strlen($phone_number) < 9) {
+    $_SESSION['msg'] = 'Phone number must have at least 9 digits.';
+    header('Location: registration.php');
+    die();
+  }
+  
   try {
-    $dbh = new PDO('sqlite:sql/project_.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    insertUser($username, $password);
+    $success= insertNewcomer($name, $email, $phone_number);
+    if ($success) {
     $_SESSION['msg'] = 'Registration successful!';
+    }
     header('Location: project_login.php');
     
   } catch (PDOException $e) {
     $error_msg = $e->getMessage();
 
     if (strpos($error_msg, 'UNIQUE')) {
-      $_SESSION['msg'] = 'Username already exists!';
+      $_SESSION['msg'] = 'This registration information already exists!';
     } else {
       $_SESSION['msg'] = "Registration failed! ($error_msg)";
     }
