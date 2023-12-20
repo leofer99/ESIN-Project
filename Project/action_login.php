@@ -6,13 +6,13 @@
 
     // get username and password from HTTP parameters
     $login_id = $_POST['login_id'];
-    $password = $_POST['password'];
+    $login_password = $_POST['password'];
     
 
     try {
       
     // check if username and password are correct
-      if (loginSuccess($login_id, $password)) {
+      if (loginSuccess($login_id, $login_password)) {
         $_SESSION['login_id'] = $login_id;
         $username= findUsernameByLoginId($login_id);
         $_SESSION['username'] = $username['name'];
